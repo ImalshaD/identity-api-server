@@ -1,0 +1,28 @@
+openapi: 3.0.1
+info:
+  title: LOA Policies API
+  version: "v1"
+servers:
+  - url: https://localhost:9443/t/{tenantDomain}/api/server/v1
+    variables:
+      tenant-domain:
+        default: carbon.super
+paths:
+  /loa-policies/ping:
+    get:
+      summary: Health check for LOA Policies API
+      operationId: ping
+      responses:
+        "200":
+          description: Pong
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                required: [message]
+              examples:
+                default:
+                  value: { "message": "pong" }
